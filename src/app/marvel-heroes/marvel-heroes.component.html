@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="co-4 offset-4">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor='let hero of heroes; let i=index' [ngClass]="{'text-success' :
+       hero==='hulk'}">{{hero | uppercase }} <span class="ml-3 float-right">
+        <button class="btn btn-danger" (click)="DeleteHero(hero,i)">Delete</button></span>
+      </li>
+      <li class="list-group-item">
+        <button class="btn btn-info" (click)="AddMore()">Add More</button>
+      </li>
+      <li class="list-group-item" *ngIf="Adding">
+        <input type="text" class="form-control" [(ngModel)]="inputHero">
+        <br>
+        <button class="btn btn-success" [disabled]="!inputHero" (click)="AddHero()">
+          Add Hero</button>
+      </li>
+    </ul>
+  </div>
+</div>
